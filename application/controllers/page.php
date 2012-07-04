@@ -50,6 +50,7 @@
 			$this->load->library('sandcastle/planet');
 			$this->load->model('sandcastle/planet_model');
 			$this->load->model('sandcastle/event_model');
+			$this->load->helper(array('url', 'text'));
 		}
 		
 		/**
@@ -62,9 +63,15 @@
 		public function index()
 		{
 			// get all the feeds from the db to populate the news sidebar
-			$feeds = $this->get_all_feeds();
+			$data['feeds'] = (array)$this->get_all_feeds();
 			// get all the events in the coming month
-			$events = $this->event_model->get_events_between();
+			$data['events'] = $this->event_model->get_events_between();
+			
+			// load index view specific
+			$data['page'] = $this->load->view('page/index', $data, TRUE);
+			
+			// put it all into the template
+			$this->load->view('theme/basic/home', $data);
 		}
 		
 		/**
