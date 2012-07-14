@@ -1,0 +1,80 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('reset.css');
+@import url('bootstrap.css');
+
+html {
+	padding: 0;
+	margin: 0;
+	border-top: 2px solid #fff;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: url('//www.mozilla.org/media/img/sandstone/bg-stone.png') repeat-x left top #f9f9f9;
+	font: 16px/24px Georgia, serif;
+}
+
+.container {
+	margin: auto;
+}
+
+body > header nav {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+	body > header nav > ul
+	{
+		display: inline;
+		padding: 0;
+		margin: 20px 0 0 0;
+	}
+	body > header nav > ul li {
+		display: inline-block;
+		list-style: none;
+		padding: 10px 20px;
+	}
+	body > header nav #tabzilla {
+		text-indent: 999999px !important;;
+	}
+
+body > header hgroup {
+	text-indent: -999999px;
+	background: url(../img/mozilla-uk-logo-h.png) no-repeat left center;
+	min-height: 120px;
+	min-width: 235px;
+	padding: 10px 0;
+}
+
+footer {
+	background: #fff;
+	padding: 40px 0;
+}
+	footer hgroup:first-child {
+		text-indent: -999999px;
+		background: url('../img/mozilla-uk-wordmark-red.png') no-repeat left center;
+		min-height: 50px;
+		min-width: 125px;
+	}
+	
+	footer ul {
+		list-style: none;
+	}
+	footer ul a {
+		color : rgb(255, 49, 58);
+		text-decoration: none;
+		font-family: 'Open Sans';
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+a {
+	color: #05388b;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}

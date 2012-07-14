@@ -130,7 +130,8 @@
 		public function planet()
 		{
 			$data['articles'] = $this->get_all_feeds();
-			$this->load->view('sandcastle/planet', $data);
+			$data['page'] = $this->load->view('page/planet', $data, TRUE);
+			$this->load->view('theme/basic/generic', $data);
 		}
 	}
 	

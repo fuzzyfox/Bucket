@@ -24,10 +24,6 @@
 						<li><?php echo anchor('planet', 'Planet'); ?></li>
 					</ul>
 				</nav>
-				
-				<section class="feature span10">
-					<img src="http://www.mozilla-hispano.org/wp-content/uploads/promo-android.jpg" alt="firefox mobile promo" />
-				</section>
 			</section>
 		</header>
 			
