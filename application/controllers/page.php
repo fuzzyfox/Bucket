@@ -62,6 +62,9 @@
 		 */
 		public function index()
 		{
+			// load form helper
+			$this->load->helper('form');
+			
 			// get all the feeds from the db to populate the news sidebar
 			$data['feeds'] = (array)$this->get_all_feeds();
 			// get all the events in the coming month

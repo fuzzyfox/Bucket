@@ -18,16 +18,12 @@
 				<nav class="span6">
 					<a href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
 					<ul>
-						<li><?php echo anchor('', 'Home'); ?></li>
+						<li class="active"><?php echo anchor('', 'Home'); ?></li>
 						<li><?php echo anchor('about', 'About'); ?></li>
 						<li><?php echo anchor('events', 'Events'); ?></li>
 						<li><?php echo anchor('planet', 'Planet'); ?></li>
 					</ul>
 				</nav>
-				
-				<section class="feature span10">
-					<img src="http://www.mozilla-hispano.org/wp-content/uploads/promo-android.jpg" alt="firefox mobile promo" />
-				</section>
 			</section>
 		</header>
 			
