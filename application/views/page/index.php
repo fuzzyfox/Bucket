@@ -1,6 +1,56 @@
 <section class="row">
-	<section class="feature span10">
-		<img src="http://www.mozilla-hispano.org/wp-content/uploads/promo-android.jpg" alt="firefox mobile promo" />
+	<section class="pager pager-with-tabs pager-auto-rotate pager-no-history" id="home-promo">
+	
+	  <div class="pager-content pager-selected-promo-collusion" style="opacity: 0.916241;">
+	
+	    <div id="page-promo-android" class="pager-page default-page" style="display: none;">
+	      <script>// &lt;![CDATA[
+	      document.getElementById('promo-android').id = 'page-promo-android';
+	      // ]]&gt;</script>
+	      <a class="container" href="//www.mozilla.org/en-US/firefox/fx/?WT.mc_id=moandroid&amp;WT.mc_ev=click#mobile">
+	        <img alt="Firefox for Android artwork" src="//www.mozilla.org/media/img/home/promo-android.jpg">
+	        <div>
+	          <h3>Fast. Smart. Safe.</h3>
+	          <h4>Get the mobile browser that’s got your back.</h4>
+	          <p>Get Firefox for Android&nbsp;»</p>
+	        </div>
+	      </a>
+	    </div>
+	
+	    <div id="page-promo-collusion" class="pager-page" style="display: block;">
+	      <script>// &lt;![CDATA[
+	      document.getElementById('promo-collusion').id = 'page-promo-collusion';
+	      // ]]&gt;</script>
+	      <a class="container" href="//www.mozilla.org/en-US/collusion/">
+	        <img alt="Collusion artwork" src="//www.mozilla.org/media/img/home/promo-collusion.jpg">
+	        <div>
+	          <h3>See who’s tracking your movements online.</h3>
+	          <p>Add Collusion to Firefox&nbsp;»</p>
+	        </div>
+	      </a>
+	    </div>
+	
+	    <div id="page-promo-flicks" class="pager-page" style="display: none;">
+	      <script>
+	        document.getElementById('promo-flicks').id = 'page-promo-flicks';
+	      </script>
+	      <a class="container" href="https://firefoxflicks.mozilla.org/?WT.mc_id=mofxflicks&amp;WT.mc_ev=click">
+	        <img alt="Firefox Flicks artwork" src="//www.mozilla.org/media/img/home/promo-flicks.jpg">
+	        <div>
+	          <h3>Congratulations to all the winners of Firefox Flicks!</h3>
+	          <p>Watch the winning videos&nbsp;»</p>
+	        </div>
+	      </a>
+	    </div>
+	
+	  </div>
+	
+	  <ul class="pager-tabs pager-selected-promo-collusion">
+	    <li><a href="#promo-android" class="">●</a></li>
+	    <li><a href="#promo-collusion" class="selected">●</a></li>
+	    <li><a href="#promo-flicks" class="">●</a></li>
+	  </ul>
+	
 	</section>
 </section>
 

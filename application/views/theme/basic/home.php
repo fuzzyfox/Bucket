@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url('asset/css/mozilla.css'); ?>" />
 		<link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet" />
+		<link href="//www.mozilla.org/media/css/home-min.css?build=e419573" media="screen,projection,tv" rel="stylesheet">
 		
 		<title>mozilla.org.uk</title>
 	</head>
@@ -67,5 +68,8 @@
 			</section>
 		</footer>
 		<script src="//www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="//www.mozilla.org/media/js/pager-min.js?build=e419573"></script>
+		<script>Mozilla.Pager.AUTO_ROTATE_INTERVAL = 5000;</script>
 	</body>
 </html>
