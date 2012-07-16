@@ -44,6 +44,7 @@ $route['404_override'] = '';
 // sandcastle route
 $route['planet'] = 'page/planet';
 $route['events'] = 'page/events';
+$route['about'] = 'page/about';
 
 
 /* End of file routes.php */
