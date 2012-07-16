@@ -19,14 +19,14 @@
 					<a href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
 					<ul>
 						<li><?php echo anchor('', 'Home'); ?></li>
-						<li><?php echo anchor('about', 'About'); ?></li>
-						<li><?php echo anchor('events', 'Events'); ?></li>
-						<li><?php echo anchor('planet', 'Planet'); ?></li>
+						<li<?php echo ($this->uri->segment(1) === 'about')?' class="active"':NULL; ?>><?php echo anchor('about', 'About'); ?></li>
+						<li<?php echo ($this->uri->segment(1) === 'events')?' class="active"':NULL; ?>><?php echo anchor('events', 'Events'); ?></li>
+						<li<?php echo ($this->uri->segment(1) === 'planet')?' class="active"':NULL; ?>><?php echo anchor('planet', 'Planet'); ?></li>
 					</ul>
 				</nav>
 			</section>
 		</header>
-			
+		
 		<section class="container">
 			<?php echo $page; ?>
 		</section>

@@ -2,11 +2,27 @@
 	<section class="pager pager-with-tabs pager-auto-rotate pager-no-history" id="home-promo">
 	
 	  <div class="pager-content pager-selected-promo-collusion" style="opacity: 0.916241;">
-	
+		
+		<div id="page-promo-firefox" class="pager-page default-page" style="display: none;">
+		  <script>// &lt;![CDATA[
+		  document.getElementById('promo-firefox').id = 'page-promo-firefox';
+		  // ]]&gt;
+		  </script>
+		  <a class="container" href="//www.mozilla.org/en-US/firefox/new/">
+		    <img alt="Firefox for Desktop artwork" src="<?php echo base_url('asset/img/promo-beta.jpg'); ?>">
+		    <div>
+		      <h3>Different by design.</h3>
+		      <h4>Proudly non-profit.<br> Innovating for you.<br> Fast, flexible, secure.</h4>
+		      <p>Get Firefox »</p>
+		    </div>
+		  </a>
+		</div>
+		
 	    <div id="page-promo-android" class="pager-page default-page" style="display: none;">
 	      <script>// &lt;![CDATA[
 	      document.getElementById('promo-android').id = 'page-promo-android';
-	      // ]]&gt;</script>
+	      // ]]&gt;
+	      </script>
 	      <a class="container" href="//www.mozilla.org/en-US/firefox/fx/?WT.mc_id=moandroid&amp;WT.mc_ev=click#mobile">
 	        <img alt="Firefox for Android artwork" src="//www.mozilla.org/media/img/home/promo-android.jpg">
 	        <div>
@@ -20,7 +36,8 @@
 	    <div id="page-promo-collusion" class="pager-page" style="display: block;">
 	      <script>// &lt;![CDATA[
 	      document.getElementById('promo-collusion').id = 'page-promo-collusion';
-	      // ]]&gt;</script>
+	      // ]]&gt;
+	      </script>
 	      <a class="container" href="//www.mozilla.org/en-US/collusion/">
 	        <img alt="Collusion artwork" src="//www.mozilla.org/media/img/home/promo-collusion.jpg">
 	        <div>
@@ -46,8 +63,9 @@
 	  </div>
 	
 	  <ul class="pager-tabs pager-selected-promo-collusion">
+	  	<li><a href="#promo-firefox" class="">●</a></li>
 	    <li><a href="#promo-android" class="">●</a></li>
-	    <li><a href="#promo-collusion" class="selected">●</a></li>
+	    <li><a href="#promo-collusion" class="">●</a></li>
 	    <li><a href="#promo-flicks" class="">●</a></li>
 	  </ul>
 	
@@ -103,7 +121,7 @@
 		<h1 class="moz-heart">Join Us</h1>
 		<p class="clearfix">Show us your support and help us build a better web with Firefox, Thunderbird, SeaMonkey and yourself! Sign up to our newsletter to receive the latest news and information.</p>
 		<?php form_open(); ?>
-			<input type="text" name="email" placeholder="your email here" required="true" /> <button type="submit" class="button-blue">Sign up</button>
+			<input type="text" name="email" placeholder="your email here" required="true" /> <button type="submit" class="button-white">Sign up</button>
 		</form>
 	</article>
 </section>

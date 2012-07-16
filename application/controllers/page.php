@@ -133,7 +133,23 @@
 		public function planet()
 		{
 			$data['articles'] = $this->get_all_feeds();
+			$data['feeds'] = $this->planet_model->get_feeds();
 			$data['page'] = $this->load->view('page/planet', $data, TRUE);
+			$this->load->view('theme/basic/generic', $data);
+		}
+		
+		/**
+		 * Displays the events page
+		 */
+		public function events()
+		{
+			$data['events'] = $this->event_model->get_event();
+			$data['page'] = $this->load->view('page/events', $data, TRUE);
+			$this->load->view('theme/basic/generic', $data);
+		}
+		
+		public function about() {
+			$data['page'] = $this->load->view('page/about', $data, TRUE);
 			$this->load->view('theme/basic/generic', $data);
 		}
 	}
