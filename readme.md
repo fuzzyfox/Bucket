@@ -15,6 +15,20 @@ Finally... finish setting up Bucket by logging into the admin interface `/admin`
 	
 **Note** you should probably create an account for yourself first before removing Mr John Doe :P
 
+### URLs
+To get the most out of Bucket you should use the sample `.htaccess` file provided. Implimentation is easy just do the following while in the Bucket directory.
+	
+	mv sample.htaccess .htaccess
+	
+Should you choose not to use our `.htaccess` then at a minimum you should paste the following into your own at the end of the file to ensure that Bucket works.
+	
+	<IfModule mod_rewrite.c>
+		RewriteCond $1 !^(index\.php|index\.html|asset|robots\.txt|humans\.txt|user_guide|docs)
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteRule ^(.*)$ /index.php?$1
+	</IfModule>
+
 ## License
 ### CodeIgniter
 For more information on the CodeIgniter License read it over at [codeigniter.com/user_guide/license.html](http://codeigniter.com/user_guide/license.html)
