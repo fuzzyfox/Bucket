@@ -18,12 +18,9 @@ cd $install_path
 ## Get Bucket
 echo "Cloning Bucket into $install_path"
 hash git >/dev/null && /usr/bin/env git clone https://github.com/fuzzyfox/Bucket.git ./ || {
-	echo "git not installed... attempting alternative method"
-	hash wget >/dev/null && /usr/bin/env wget https://github.com/fuzzyfox/Bucket/tarball/master -O - | tar xvfz - || {
-		echo "unable to install, see manual install instructions"
-		cd $return_path
-		exit
-	}
+	echo "git not installed"
+	cd $return_path
+	exit
 }
 if [ -d "bucket" ]
 then
