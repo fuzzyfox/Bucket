@@ -6,7 +6,7 @@ complete install during the process.\n- - - -"
 
 ## Set Install Path
 echo "Install Path:"
-read -e install_path
+read install_path
 if [ ! -d "$install_path" ]
 then
 	echo "Creating $install_path"
@@ -52,13 +52,13 @@ chmod 777 application/config/sandcastle.php
 
 echo "Time for some config information for the database\n\n"
 echo "Hostname:"
-read -e db_hostname
+read db_hostname
 echo "Username:"
-read -e db_username
+read db_username
 echo "Password:"
-read -e -s db_password
+read -s db_password
 echo "Database:"
-read -e db_database
+read db_database
 
 ## start php install script now prep work is done
 echo "making changes to config files"
