@@ -77,7 +77,6 @@ class Core {
 
 			// Write the file
 			if(fwrite($handle,$new)) {
-				return true;
 			} else {
 				return false;
 			}
@@ -113,7 +112,6 @@ class Core {
 
 			// Write the file
 			if(fwrite($handle,$new)) {
-				return true;
 			} else {
 				return false;
 			}
@@ -146,7 +144,6 @@ class Core {
 
 			// Write the file
 			if(fwrite($handle,$new)) {
-				return true;
 			} else {
 				return false;
 			}
@@ -154,5 +151,6 @@ class Core {
 		} else {
 			return false;
 		}
+		return true;
 	}
 }
