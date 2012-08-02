@@ -2,12 +2,40 @@
 This is Bucket, this is a community portal built on top of [SandCastle](http://www.github.com/fuzzyfox/SandCastle).
 
 ## Install
-Installation is two-phased. First you need to grab a copy of bucket, and put it into the root dir for your site.
-	
-	git clone git://github.com/fuzzyfox/Bucket.git ./
-	
-Next you will need to navigate to `/install` via your web browser. (e.g. http://www.yourbucketinstall.com/install/) and follow the instructions there.
+This isn't the easiest process in the world, will work on this soon.
 
+### Requirements
+* PHP 5.3+
+* MySQL 5.1+
+* Apache 2+
+
+### Installation
+This installation is for installing Bucket inside the root of your site. For anything else you should be able to work it out from this.
+
+First you need to get the code. We recommend you do this using git so that you can quickly and easily get future updates
+
+	git clone https://github.com/fuzzyfox/Bucket.git ./
+
+Next… time to move some files around.
+
+	mv application/config/config.sample.php application/config/config.php
+	mv application/config/database.sample.php application/config/database.php
+
+Finally you need to go into each of the config files and fill in the needed details. These should be fairly obvious, however here are the ones we recommend you change.
+
+* `config.php`
+	* encryptionkey
+* `database.php`
+	* hostname
+	* username
+	* password
+	* database
+* `sandcastle.php`
+	* secretsalt
+
+Once all that is done, point your browser to `www.yourbucketinstall.com`.
+
+### Admin Login
 Finally... finish setting up Bucket by logging into the admin interface `/admin` using the following credentials (which we recommend you remove ASAP).
 
 	Email:		j.doe@example.com
