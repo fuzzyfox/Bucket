@@ -29,11 +29,14 @@ Finally you need to go into each of the config files and fill in the needed deta
 	* hostname
 	* username
 	* password
-	* database
+	* database (bucket is the easiest option)
 * `sandcastle.php`
 	* secretsalt
 
 Once all that is done, point your browser to `www.yourbucketinstall.com`.
+
+### Database
+You will need to setup the database with the needed schema and default login. We will leave you to choose which method you use for this. The SQL to setup the schema and initial login can be found in `db_schema.sql`
 
 ### Admin Login
 Finally... finish setting up Bucket by logging into the admin interface `/admin` using the following credentials (which we recommend you remove ASAP).

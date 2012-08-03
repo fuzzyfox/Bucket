@@ -3,14 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2012 at 10:46 pm
+-- Generation Time: Aug 03, 2012 at 12:29 am
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `mozillauk`
+-- Database: `bucket`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `start_date` int(4) unsigned DEFAULT NULL COMMENT 'event start timestamp',
   `finish_date` int(4) unsigned DEFAULT NULL COMMENT 'event finish timestamp',
   PRIMARY KEY (`event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -82,6 +82,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`email`, `password`, `status`, `name`) VALUES
+('j.doe@example.com', 'b62f1bfe50184fbc0898c8ffef5ad26d469f2dd452b98c103cf3a21436aeaf9fc988b75f644cf0136b3a2401c16a16a0218849509e86dbaf75d34fe79976b37a', 0, 'John Doe');
+--
 -- Constraints for dumped tables
 --
 
@@ -89,5 +95,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Constraints for table `event_tag`
 --
 ALTER TABLE `event_tag`
-  ADD CONSTRAINT `event_tag_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `event_tag_ibfk_1` FOREIGN KEY (`tag_name`) REFERENCES `tag` (`tag_name`);
+  ADD CONSTRAINT `event_tag_ibfk_1` FOREIGN KEY (`tag_name`) REFERENCES `tag` (`tag_name`),
+  ADD CONSTRAINT `event_tag_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `event` (`event_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
