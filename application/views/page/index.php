@@ -1,7 +1,7 @@
 <section id="home-news">
 	<h3>News</h1>
 	<ul>
-		<?php for($i = 0; $i < 5; $i++): $article = $feeds[$i]; ?>
+		<?php for($i = 0; $i < 3; $i++): $article = $feeds[$i]; ?>
 		<li>
 			<h4><a href="<?php echo $article->link; ?>"><?php echo $article->title; ?></a></h4>
 			<p><?php echo character_limiter(strip_tags($article->content), 300); ?></p>
@@ -10,6 +10,7 @@
 	</ul>
 </section>
 
+<?php if($events): ?>
 <section id="home-events">
 	<h3>Events</h3>
 	<?php foreach ($events as $event): ?>
@@ -36,6 +37,7 @@
 	</section>
 	<?php endforeach; ?>
 </section>
+<?php endif; ?>
 
 <section id="home-get-involved">
 	<h3 class="dinohead">Get Involved</h3>

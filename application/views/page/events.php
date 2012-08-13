@@ -1,5 +1,5 @@
 <h1>Events</h1>
-<?php foreach ($events as $event): ?>
+<?php if($events): foreach ($events as $event): ?>
 <section class="event">
 	<p class="calendar event-time">
 		<time datetime="<?php echo date('Y-m-d G:i', $event->start_date); ?>">
@@ -21,4 +21,6 @@
 		?>
 	</div>
 </section>
-<?php endforeach; ?>
+<?php endforeach;else: ?>
+<p>No events here... more to come soon we hope!</p>
+<?php endif; ?>

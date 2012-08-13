@@ -8,7 +8,7 @@
 		<link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
 		<script src="//www.mozilla.org/media/js/site-min.js?build=ff582c5"></script>
 
-		<title>mozilla.org.uk</title>
+		<title>Mozilla United Kingdom Community</title>
 	</head>
 	<body id="home" class="html-ltr bucket">
 		<div id="outer-wrapper">
@@ -27,7 +27,7 @@
 						</ul>
 					</nav>
 
-					<h2><a href="/"><img src="/asset/img/mozilla-uk-logo-h.png" alt="mozilla uk"></a></h2>
+					<h2><a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-logo-h.png'); ?>" alt="mozilla uk"></a></h2>
 
 				</header>
 
@@ -91,7 +91,45 @@
 								</div>
 							</a>
 						</div>
-
+						
+						<div id="page-promo-maker-video" class="default-page pager-page">
+							<script>// &lt;![CDATA[
+							document.getElementById('promo-maker-video').id = 'page-promo-maker-video';
+							// ]]&gt;</script>
+							<a class="container" href="//www.mozilla.org/en-US/webmaker/videos/">
+							  <img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/instructors.jpg">
+							  <div>
+								<h3>Meet the Webmakers</h3>
+								<p><strong>Let's teach the world the web.</strong> Meet some of the global community making it happen.</p>
+							  </div>
+							</a>
+						  </div>
+					
+						<div class="pager-page" id="page-promo-code-party">
+							<script>// &lt;![CDATA[
+							document.getElementById('promo-code-party').id = 'page-promo-code-party';
+							// ]]&gt;</script>
+							<a class="container" href="https://webmaker.org/events/">
+							  <img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/codeparty.jpg">
+							  <div>
+								<h3>Summer Code Party</h3>
+								<p>Meet, make, and share your creations with friends to learn some code this summer. »</p>
+							  </div>
+							</a>
+						  </div>
+						
+						<div class="pager-page" id="page-promo-popcorn">
+							<script>// &lt;![CDATA[
+							document.getElementById('promo-popcorn').id = 'page-promo-popcorn';
+							// ]]&gt;</script>
+							<a class="container" href="http://www.mozillapopcorn.org">
+							  <img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/popcorn.png">
+							  <div>
+								<h3>Make video pop with Popcorn</h3>
+								<p>Popcorn is revolutionizing video on the web. It's free, open, and easy to use. Try it today. »</p>
+							  </div>
+							</a>
+						  </div>
 					</div>
 
 					<ul class="pager-tabs">
@@ -99,6 +137,9 @@
 						<li><a href="#p2">●</a></li>
 						<li><a href="#p3">●</a></li>
 						<li><a href="#p4">●</a></li>
+						<li><a href="#p5">●</a></li>
+						<li><a href="#p6">●</a></li>
+						<li><a href="#p7">●</a></li>
 					</ul>
 
 				</section>
@@ -107,19 +148,20 @@
 				<?php echo $page; ?>
 				</div>
 
-				<form class="billboard" id="footer-email-form" method="post" action="https://lists.mozilla.org/subscribe/community-uk">
+				<!--<form class="billboard" id="footer-email-form" method="post" action="//lists.mozilla.org/subscribe/community-uk">
 					<h3>Join our mailing list</h3>
+					<input type="hidden" name="digest" value="0" />
 
 					<div class="form-contents">
 						<div class="field field-email">
-							<input name="email" type="email" id="id_email" value="" placeholder="YOUR EMAIL HERE">
+							<input name="email" type="email" id="id_email" size="30" value="" placeholder="YOUR EMAIL HERE">
 						</div>
 					</div>
 
 					<div class="form-submit">
-						<input type="submit" id="footer_email_submit" value="Sign me up »" class="button-blue">
+						<button type="submit" id="footer_email_submit" class="button-blue">Sign me up »</button>
 					</div>
-				</form>
+				</form>-->
 
 			</div>
 
@@ -127,7 +169,7 @@
 				<div class="row">
 
 					<div class="footer-logo">
-						<a href="/en-US/"><img src="/asset/img/footer.png" alt="mozilla"></a>
+						<a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-wordmark-red.png'); ?>" alt="mozilla"></a>
 					</div>
 
 					<div class="footer-license">

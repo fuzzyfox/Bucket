@@ -8,7 +8,7 @@
 		<link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
 		<script src="//www.mozilla.org/media/js/site-min.js?build=ff582c5"></script>
 
-		<title>mozilla.org.uk</title>
+		<title>Mozilla United Kingdom Community</title>
 	</head>
 	<body id="home" class="html-ltr bucket">
 		<div id="outer-wrapper">
@@ -27,7 +27,7 @@
 						</ul>
 					</nav>
 
-					<h2><a href="/"><img src="/asset/img/mozilla-uk-logo-h.png" alt="mozilla uk"></a></h2>
+					<h2><a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-logo-h.png'); ?>" alt="mozilla uk"></a></h2>
 
 				</header>
 
@@ -41,7 +41,7 @@
 				<div class="row">
 
 					<div class="footer-logo">
-						<a href="/en-US/"><img src="/asset/img/footer.png" alt="mozilla"></a>
+						<a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-wordmark-red.png'); ?>" alt="mozilla"></a>
 					</div>
 
 					<div class="footer-license">
