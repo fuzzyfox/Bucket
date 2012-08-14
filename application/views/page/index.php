@@ -41,5 +41,6 @@
 
 <section id="home-get-involved">
 	<h3 class="dinohead">Get Involved</h3>
-	<p class="clearfix">You dont't have to be a C++ guru (or even know what that means!) to get involved. You juest have to love the web. Find out more about how you can contribute and get in touch with use to start making the web.</p>
+	<p>You don’t have to be a C++ guru (or even know what that means!) to get involved. You just have to love the web.</p>
+	<a href="https://www.mozilla.org/en-US/contribute/" id="contribute">Find an opportunity »</a>
 </section>
