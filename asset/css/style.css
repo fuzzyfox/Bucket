@@ -205,6 +205,7 @@ nav.menu-bar ol li:first-child a,nav.menu-bar ul li:first-child a{border-left:0;
 .event-tags{float:right;margin-right:5px;text-align:right;}
 #home-news{float:left;width:300px;margin:0 10px;margin-bottom:24px;}
 #home-events,#home-get-involved{float:left;width:540px;margin:0 10px;margin-left:90px;margin-bottom:24px;}
+#contribute{font-family:'Open Sans',sans-serif;}
 .main-column{float:left;width:620px;margin:0 10px;}
 .sidebar{float:left;width:220px;margin:0 10px;margin-left:90px;}
 .post{position:relative;}
