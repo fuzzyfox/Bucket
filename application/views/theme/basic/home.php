@@ -91,7 +91,7 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div id="page-promo-maker-video" class="default-page pager-page">
 							<script>// &lt;![CDATA[
 							document.getElementById('promo-maker-video').id = 'page-promo-maker-video';
@@ -104,7 +104,7 @@
 							  </div>
 							</a>
 						  </div>
-					
+
 						<div class="pager-page" id="page-promo-code-party">
 							<script>// &lt;![CDATA[
 							document.getElementById('promo-code-party').id = 'page-promo-code-party';
@@ -117,7 +117,7 @@
 							  </div>
 							</a>
 						  </div>
-						
+
 						<div class="pager-page" id="page-promo-popcorn">
 							<script>// &lt;![CDATA[
 							document.getElementById('promo-popcorn').id = 'page-promo-popcorn';
@@ -176,9 +176,9 @@
 						<p>Portions of this content are &copy; by individual mozilla.org.uk contributors. Content available under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons License</a>.</p>
 					</div>
 					<ul class="footer-nav">
-						<li><?php echo anchor('contact', 'Contact Us'); ?></li>
-						<li><?php echo anchor('privacy', 'Privacy Policy'); ?></li>
-						<li><?php echo anchor('legal', 'Legal Notices'); ?></li>
+						<!-- <li><?php echo anchor('contact', 'Contact Us'); ?></li> -->
+						<!-- <li><?php echo anchor('privacy', 'Privacy Policy'); ?></li> -->
+						<!-- <li><?php echo anchor('legal', 'Legal Notices'); ?></li> -->
 						<li><a href="http://www.mozilla.org/en-US/about/mozilla-spaces/">Visit Us</a></li>
 					</ul>
 
