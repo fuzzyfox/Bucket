@@ -191,6 +191,18 @@
 				</div>
 			</footer>
 			<script src="//www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+			<!-- Piwik -->
+			<script type="text/javascript">
+			var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.mozilla.org.uk/" : "http://stats.mozilla.org.uk/");
+			document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+			</script><script type="text/javascript">
+			try {
+			var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+			piwikTracker.trackPageView();
+			piwikTracker.enableLinkTracking();
+			} catch( err ) {}
+			</script><noscript><p><img src="http://stats.mozilla.org.uk/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+			<!-- End Piwik Tracking Code -->
 		</div>
 		<script src="//www.mozilla.org/media/js/mozorg-resp-min.js?build=ff582c5"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
