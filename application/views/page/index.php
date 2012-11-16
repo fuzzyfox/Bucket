@@ -1,5 +1,5 @@
 <section id="home-news">
-	<h3>News</h1>
+	<h3>Planet</h1>
 	<ul>
 		<?php for($i = 0; $i < 3; $i++): $article = $feeds[$i]; ?>
 		<li>
