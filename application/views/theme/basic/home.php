@@ -79,19 +79,6 @@
 							</a>
 						</div>
 
-						<div class="pager-page" id="promo-flicks">
-							<script>
-								document.getElementById('promo-flicks').id = 'page-promo-flicks';
-							</script>
-							<a href="https://firefoxflicks.mozilla.org/?WT.mc_id=mofxflicks&amp;WT.mc_ev=click" class="container">
-								<img alt="Firefox Flicks artwork" src="//www.mozilla.org/media/img/home/promo-flicks.jpg">
-								<div>
-									<h3>Congratulations to all the winners of Firefox Flicks!</h3>
-									<p class="go">Watch the winning videos</p>
-								</div>
-							</a>
-						</div>
-
 						<div id="page-promo-maker-video" class="default-page pager-page">
 							<script>// &lt;![CDATA[
 							document.getElementById('promo-maker-video').id = 'page-promo-maker-video';
@@ -101,19 +88,6 @@
 							  <div>
 								<h3>Meet the Webmakers</h3>
 								<p><strong>Let's teach the world the web.</strong> Meet some of the global community making it happen.</p>
-							  </div>
-							</a>
-						  </div>
-
-						<div class="pager-page" id="page-promo-code-party">
-							<script>// &lt;![CDATA[
-							document.getElementById('promo-code-party').id = 'page-promo-code-party';
-							// ]]&gt;</script>
-							<a class="container" href="https://webmaker.org/events/">
-							  <img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/codeparty.jpg">
-							  <div>
-								<h3>Summer Code Party</h3>
-								<p>Meet, make, and share your creations with friends to learn some code this summer. »</p>
 							  </div>
 							</a>
 						  </div>
@@ -138,8 +112,6 @@
 						<li><a href="#p3">●</a></li>
 						<li><a href="#p4">●</a></li>
 						<li><a href="#p5">●</a></li>
-						<li><a href="#p6">●</a></li>
-						<li><a href="#p7">●</a></li>
 					</ul>
 
 				</section>
