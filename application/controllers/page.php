@@ -1,5 +1,8 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
-	
+
+define('JINJA_INHERITANCE_DIRNAME', 'jinja-inheritance');
+define('JINJA_INHERITANCE_PATH', APPPATH.'libraries/'.JINJA_INHERITANCE_DIRNAME);
+
 	/**
 	 * SandCastle
 	 *
@@ -12,12 +15,12 @@
 	 * @link 		http://www.wduyck.com/ wduyck.com
 	 * @filesource
 	 */
-	
+
 	// -------------------------------------------------------------------------
-	
+
 	/**
 	 * Page Controller
-	 * 
+	 *
 	 * Provides the needed functions to make running a basic community portal a
 	 * piece of cake. This controller acts as an example of one way the Planet
 	 * Library and Planet Model can be used together to produce a functioning
@@ -46,13 +49,14 @@
 		public function __construct()
 		{
 			parent::__construct();
-			
+
 			$this->load->library('sandcastle/planet');
 			$this->load->model('sandcastle/planet_model');
 			$this->load->model('sandcastle/event_model');
 			$this->load->helper(array('url', 'text'));
+			$this->load->library(JINJA_INHERITANCE_DIRNAME.'/JI_Loader', NULL, 'ji_load');
 		}
-		
+
 		/**
 		 * Portal homepage
 		 *
@@ -64,19 +68,16 @@
 		{
 			// load form helper
 			$this->load->helper('form');
-			
+
 			// get all the feeds from the db to populate the news sidebar
 			$data['feeds'] = (array)$this->get_all_feeds();
 			// get all the events in the coming month
 			$data['events'] = $this->event_model->get_events_between();
-			
-			// load index view specific
-			$data['page'] = $this->load->view('page/index', $data, TRUE);
-			
-			// put it all into the template
-			$this->load->view('theme/basic/home', $data);
+
+			// load index view
+			$this->ji_load->view('page/index', $data);
 		}
-		
+
 		/**
 		 * Get all planet feeds
 		 *
@@ -94,7 +95,7 @@
 			{
 				redirect('planet');
 			}
-			
+
 			// add all feeds into the array using the model to get the feeds
 			// from the database
 			$dbfeeds = $this->planet_model->get_feeds();
@@ -102,12 +103,12 @@
 			{
 				// something to store the list of feeds from the database in.
 				$feeds = array();
-				
+
 				foreach($dbfeeds as $feed)
 				{
 					array_push($feeds, $feed->feed_url);
 				}
-				
+
 				// use the planet library to get the actual feeds and cache them
 				// if needed
 				$feeds = $this->planet->get_feed($feeds);
@@ -122,11 +123,11 @@
 					return $feeds;
 				}
 			}
-			
+
 			return FALSE;
 		}
-		
-		
+
+
 		/**
 		 * Displays a planet page
 		 */
@@ -134,20 +135,18 @@
 		{
 			$data['articles'] = $this->get_all_feeds();
 			$data['feeds'] = $this->planet_model->get_feeds();
-			$data['page'] = $this->load->view('page/planet', $data, TRUE);
-			$this->load->view('theme/basic/generic', $data);
+			$this->ji_load->view('page/planet', $data);
 		}
-		
+
 		/**
 		 * Displays the events page
 		 */
 		public function events()
 		{
 			$data['events'] = $this->event_model->get_event();
-			$data['page'] = $this->load->view('page/events', $data, TRUE);
-			$this->load->view('theme/basic/generic', $data);
+			$this->ji_load->view('page/events', $data);
 		}
-		
+
 		/**
 		 * Display about page
 		 *
@@ -156,10 +155,9 @@
 		public function about()
 		{
 			redirect('https://www.mozilla.org/mission', 'location', 307);
-			$data['page'] = $this->load->view('page/about', NULL, TRUE);
-			$this->load->view('theme/basic/generic', $data);
+			$this->load->view('page/about', NULL);
 		}
 	}
-	
+
 /* End of file page.php */
 /* Location: application/controllers/page.php */

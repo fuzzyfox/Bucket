@@ -1,3 +1,6 @@
+<?php $this->extends_view("theme/basic/generic"); ?>
+
+<?php $this->start_block('content'); ?>
 <h1>Events</h1>
 <?php if($events): foreach ($events as $event): ?>
 <section class="event">
@@ -24,3 +27,4 @@
 <?php endforeach;else: ?>
 <p>No events here... more to come soon we hope!</p>
 <?php endif; ?>
+<?php $this->end_block('content'); ?>

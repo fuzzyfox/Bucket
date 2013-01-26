@@ -1,3 +1,6 @@
+<?php $this->extends_view("theme/basic/generic"); ?>
+
+<?php $this->start_block('content'); ?>
 <div class="row">
 
 	<div class="main-column">
@@ -66,3 +69,5 @@
 		</section>
 	</aside>
 </div>
+
+<?php $this->end_block('content'); ?>

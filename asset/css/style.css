@@ -3152,7 +3152,7 @@ nav.menu-bar ul li:first-child a {
   margin: 0 12px;
   float: left;
   margin-left: 24px;
-  width: 344px;
+  width: 252px;
   margin-bottom: 20px;
 }
 #home-events,
@@ -3161,8 +3161,6 @@ nav.menu-bar ul li:first-child a {
   float: left;
   margin-left: 24px;
   width: 620px;
-  margin-left: 104px;
-  margin-left: 116px;
   margin-bottom: 20px;
 }
 #contribute {
@@ -3178,9 +3176,7 @@ nav.menu-bar ul li:first-child a {
   margin: 0 12px;
   float: left;
   margin-left: 24px;
-  width: 252px;
-  margin-left: 104px;
-  margin-left: 116px;
+  width: 160px;
 }
 .post {
   position: relative;
