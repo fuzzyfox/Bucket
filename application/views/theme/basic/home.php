@@ -32,7 +32,7 @@
 						</ul>
 					</nav>
 
-					<h2><a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-logo-h.png'); ?>" alt="mozilla uk"></a></h2>
+					<h2><a href="<?php echo site_url(); ?>"><img id="header-logo" src="<?php echo base_url('asset/img/logo-h.svg'); ?>" alt="Mozilla UK"></a></h2>
 
 				</header>
 
