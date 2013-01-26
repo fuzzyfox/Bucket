@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en-GB" dir="ltr">
 	<head>
+
+		<!--[if lte IE 8]>
+		<script src="<?php echo base_url('asset/js/html5shiv-3.6.1.js'); ?>"></script>
+		<![endif]-->
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
