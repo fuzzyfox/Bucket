@@ -89,12 +89,10 @@
 		} catch( err ) {}
 		</script><noscript><p><img src="http://stats.mozilla.org.uk/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
 		<!-- End Piwik Tracking Code -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<?php Assets::cdn(array('jquery','jquery-validate','jqueryui'));?>
 		<script src="//www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
-		<script src="<?php echo base_url('media/js/bedrock/global.js'); ?>"></script>
-		<script src="<?php echo base_url('media/js/bedrock/mozilla-pager.js'); ?>"></script>
-		<script src="<?php echo base_url('media/js/bedrock/nav-main-resp.js'); ?>"></script>
-		<script src="<?php echo base_url('media/js/bedrock/site.js'); ?>"></script>
+		<?php Assets::js_group('global', array('bedrock/global.js', 'bedrock/nav-main-resp.js', 'bedrock/site.js')); ?>
+		<?php Assets::js(array('bedrock/mozilla-pager.js')); ?>
 		<script>Mozilla.Pager.AUTO_ROTATE_INTERVAL = 10000;</script>
 	</body>
 </html>
