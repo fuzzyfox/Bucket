@@ -1,56 +1,6 @@
 @import "sandstone/lib.less";
+@import "common/events.less";
 
-/* {{{ Events */
-.event {
-  padding: 20px;
-  padding-left: 108px;
-  margin-bottom: 12px;
-  position: relative;
-  @shadow: 0 0 0 1px #fff inset;
-  .box-shadow(@shadow);
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  .clearfix;
-  h1, h2, h3, h4, h5, h6, .huge, .large {
-    color: @textColorSecondary;
-  }
-}
-
-.event-time {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-
-.calendar {
-  width: 48px;
-  padding: 6px 10px 16px;
-  background: url("../img/bg-date-lt.png")center top no-repeat;
-  text-align: center;
-  font: 10px/1 "Open Sans Light", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
-}
-
-.calendar-month {
-  display: block;
-  font-size: 1.4em;
-  text-transform: uppercase;
-}
-.calendar-date {
-  display: block;
-  font-size: 2.6em;
-  line-height: .95;
-}
-.calendar-year {
-  display: block;
-  font-size: 1.4em;
-}
-
-.event-tags {
-  float: right;
-  margin-right: 5px;
-  text-align: right;
-}
-/* }}} */
 /* {{{ Firefox Promo bar */
 
 #firefox-promo {

@@ -208,5 +208,4 @@
 	<p>You don’t have to be a C++ guru (or even know what that means!) to get involved. You just have to love the web.</p>
 	<a href="https://www.mozilla.org/en-GB/contribute/" id="contribute">Find an opportunity »</a>
 </section>
-
 <?php $this->end_block('content'); ?>
