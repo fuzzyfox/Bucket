@@ -1,11 +1,11 @@
 <?php $this->extends_view("theme/basic/generic"); ?>
 
 <?php $this->start_block('styles'); ?>
-<?php Assets::css(array('home.less')); ?>
+<?php Assets::css_group('events', array('home.less')); ?>
 <?php $this->end_block('styles'); ?>
 
 <?php $this->start_block('javascripts'); ?>
-<?php Assets::js(array('bedrock/mozilla-pager.js')); ?>
+<?php Assets::js_group('home', array('bedrock/mozilla-pager.js')); ?>
 <script>Mozilla.Pager.AUTO_ROTATE_INTERVAL = 10000;</script>
 <?php $this->end_block('javascripts'); ?>
 
