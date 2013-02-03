@@ -89,7 +89,7 @@
 		} catch( err ) {}
 		</script><noscript><p><img src="http://stats.mozilla.org.uk/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
 		<!-- End Piwik Tracking Code -->
-		<?php Assets::cdn(array('jquery','jquery-validate','jqueryui'));?>
+		<?php Assets::cdn(array('jquery'));?>
 		<script src="//www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
 		<?php Assets::js_group('global', array('bedrock/global.js', 'bedrock/nav-main-resp.js', 'bedrock/site.js')); ?>
 		<?php $this->start_block('javascripts'); ?>
