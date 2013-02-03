@@ -4,6 +4,11 @@
 <?php Assets::css(array('home.less')); ?>
 <?php $this->end_block('styles'); ?>
 
+<?php $this->start_block('javascripts'); ?>
+<?php Assets::js(array('bedrock/mozilla-pager.js')); ?>
+<script>Mozilla.Pager.AUTO_ROTATE_INTERVAL = 10000;</script>
+<?php $this->end_block('javascripts'); ?>
+
 <?php $this->start_block('firefox-download'); ?>
 <section id="firefox-promo" class="billboard">
 	<h3>Different by&nbsp;Design</h3>
