@@ -3,7 +3,7 @@
 	<head>
 
 		<!--[if lte IE 8]>
-		<script src="<?php echo base_url('media/js/html5shiv-3.6.1.js'); ?>"></script>
+			<?php Assets::js_group('ie', array('html5shiv-3.6.1.js')); ?>
 		<![endif]-->
 
 		<meta charset="utf-8">
