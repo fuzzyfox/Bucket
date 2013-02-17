@@ -1,8 +1,5 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-define('JINJA_INHERITANCE_DIRNAME', 'jinja-inheritance');
-define('JINJA_INHERITANCE_PATH', APPPATH.'libraries/'.JINJA_INHERITANCE_DIRNAME);
-
 	/**
 	 * SandCastle
 	 *
@@ -54,7 +51,7 @@ define('JINJA_INHERITANCE_PATH', APPPATH.'libraries/'.JINJA_INHERITANCE_DIRNAME)
 			$this->load->model('sandcastle/planet_model');
 			$this->load->model('sandcastle/event_model');
 			$this->load->helper(array('url', 'text'));
-			$this->load->library(JINJA_INHERITANCE_DIRNAME.'/JI_Loader', NULL, 'ji_load');
+			$this->load->library('jinja-inheritance/JI_Loader', NULL, 'ji_load');
 		}
 
 		/**
