@@ -1,0 +1,44 @@
+body {
+  margin-top: 60px;
+}
+
+@media (max-width: 979px) {
+  body {
+    margin: 0;
+  }
+}
+
+.alert {
+  display: none;
+}
+
+th:last-child, td:last-child {
+  width: 100px;
+  text-align: right;
+}
+
+thead tr:last-child {
+  display: none;
+}
+
+.btn-save {
+  display: none;
+}
+
+.btn-ajax {
+  padding: 2px;
+  line-height: 15px;
+  height: 22px;
+  width: 22px;
+}
+
+input.input-short {
+  line-height: 20px;
+  font-size: 10.5px;
+  padding: 0 6px;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
