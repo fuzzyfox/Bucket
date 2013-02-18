@@ -48,8 +48,9 @@
 			parent::__construct();
 
 			$this->load->library('sandcastle/planet');
-			$this->load->model('sandcastle/planet_model');
-			$this->load->model('sandcastle/event_model');
+			$this->load->model(array('sandcastle/planet_model',
+			                         'sandcastle/event_model',
+			                         'sandcastle/setting_model'));
 			$this->load->helper(array('url', 'text'));
 			$this->load->library('jinja-inheritance/JI_Loader', NULL, 'ji_load');
 		}
@@ -70,6 +71,9 @@
 			$data['feeds'] = (array)$this->get_all_feeds();
 			// get all the events in the coming month
 			$data['events'] = $this->event_model->get_events_between();
+
+			// get the firefox version from the db for the download box
+			$data['LATEST_FIREFOX_VERSION'] = $this->setting_model->get('LATEST_FIREFOX_VERSION')[0]->val;
 
 			// load index view
 			$this->ji_load->view('page/index', $data);

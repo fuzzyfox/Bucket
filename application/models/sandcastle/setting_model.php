@@ -85,10 +85,10 @@
      * @param string  $id  the id of the setting to get [optional]
      * @return  mixed database result object on success, FALSE on fail
      */
-    public function get($setting = null)
+    public function get($id = null)
     {
       // specific setting requested
-      if(is_string($setting))
+      if(is_string($id))
       {
         $setting = $this->db->get_where('setting', array(
           'id' => $id
