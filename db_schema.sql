@@ -81,6 +81,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting`
+--
+
+CREATE TABLE IF NOT EXISTS `setting` (
+  `id` varchar(254) NOT NULL DEFAULT '',
+  `val` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Dumping data for table `user`
 --

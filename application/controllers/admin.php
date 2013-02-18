@@ -53,7 +53,7 @@
 
 			// load sandcastle components needed over and over
 			$this->load->library(array('sandcastle/user', 'sandcastle/planet'));
-			$this->load->model(array('sandcastle/user_model', 'sandcastle/planet_model', 'sandcastle/event_model'));
+			$this->load->model(array('sandcastle/user_model', 'sandcastle/planet_model', 'sandcastle/event_model', 'sandcastle/setting_model'));
 		}
 
 		/**
@@ -467,6 +467,84 @@
 			{
 				$this->db->delete('event', array('event_id' => $this->input->post('event_id')));
 				redirect(strtolower(get_class($this)) . '/events');
+			}
+		}
+
+		/**
+		 * Lists settings
+		 */
+		public function settings()
+		{
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/settings');
+				return;
+			}
+
+			$data['settings'] = $this->setting_model->get();
+			$this->ji_load->view('sandcastle/admin/settings', $data);
+		}
+
+		/**
+		 * Allows the addition of settings
+		 */
+		public function add_setting()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/add_setting');
+				return;
+			}
+
+			// set validation rules
+			$this->form_validation->set_rules('id', 'ID', 'required');
+			$this->form_validation->set_rules('val', 'Value', 'required');
+
+			// run form validation and add setting if possible
+			if($this->form_validation->run() === FALSE)
+			{
+				$this->ji_load->view('sandcastle/form/add_setting');
+			}
+			else
+			{
+				$this->setting_model->add($this->input->post('id'), $this->input->post('val'));
+				redirect(strtolower(get_class($this)) . '/settings');
+			}
+		}
+
+		/**
+		 * Allows the deletion of settings
+		 */
+		public function delete_setting()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/delete_setting');
+				return;
+			}
+
+			// get the url of the feed to remove and show error if not provided
+			$id = ($this->input->get('id')) ? $this->input->get('id') : $this->input->post('id');
+			if(!$id)
+			{
+				show_error('No setting specified for deletion', 400, '400 Bad Request');
+			}
+
+			// set validation rules
+			$this->form_validation->set_rules('id', 'ID', 'required');
+
+			// run from validation and remove setting if confrimation given
+			if($this->form_validation->run() === FALSE)
+			{
+				$data['id'] = $id;
+				$this->ji_load->view('sandcastle/form/delete_setting', $data);
+			}
+			else
+			{
+				$this->setting_model->delete($id);
+				redirect(strtolower(get_class($this)) . '/settings');
 			}
 		}
 
