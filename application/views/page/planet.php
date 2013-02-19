@@ -4,10 +4,12 @@
 <?php Assets::css_group('planet', array('planet.less')); ?>
 <?php $this->end_block('styles'); ?>
 
+<?php $this->start_block('title'); ?>
+<h1>Planet</h1>
+<?php $this->end_block('title'); ?>
+
 <?php $this->start_block('content'); ?>
 <div id="posts">
-	<h1>Planet UK</h1>
-
 	<?php foreach($articles as $post): ?>
 	<article class="post">
 		<h2 class="post-title"><?php echo $post->title; ?></h2>

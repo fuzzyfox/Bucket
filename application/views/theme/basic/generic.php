@@ -36,6 +36,9 @@
 
 					<h2><a href="<?php echo site_url(); ?>"><img id="header-logo" src="<?php echo base_url('media/img/logo-h.png'); ?>" alt="Mozilla UK"></a></h2>
 
+					<?php $this->start_block('title'); ?>
+					<?php $this->end_block('title'); ?>
+
 				</header>
 
 				<?php $this->start_block('firefox-download'); ?>
