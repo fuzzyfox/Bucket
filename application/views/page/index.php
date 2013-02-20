@@ -1,7 +1,7 @@
 <?php $this->extends_view("theme/basic/generic"); ?>
 
 <?php $this->start_block('styles'); ?>
-<?php Assets::css_group('events', array('home.less')); ?>
+<?php Assets::css_group('home', array('home.less')); ?>
 <?php $this->end_block('styles'); ?>
 
 <?php $this->start_block('javascripts'); ?>
