@@ -85,16 +85,20 @@
      * @param string  $id  the id of the setting to get [optional]
      * @return  mixed database result object on success, FALSE on fail
      */
-    public function get($id = null)
+    public function get($id = NULL)
     {
       // specific setting requested
       if(is_string($id))
       {
-        $setting = $this->db->get_where('setting', array(
+        $setting_array = $this->db->get_where('setting', array(
           'id' => $id
         ));
 
-        return ($setting->num_rows() === 1) ? $setting->result() : FALSE;
+        $setting_result = $setting_array->result();
+
+        $setting = $setting_result[0]->val;
+
+        return ($setting_array->num_rows() === 1) ? $setting : FALSE;
       }
 
       // all settings

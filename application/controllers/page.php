@@ -73,7 +73,7 @@
 			$data['events'] = $this->event_model->get_events_between();
 
 			// get the firefox version from the db for the download box
-			$data['LATEST_FIREFOX_VERSION'] = $this->setting_model->get('LATEST_FIREFOX_VERSION')[0]->val;
+			$data['LATEST_FIREFOX_VERSION'] = $this->setting_model->get('LATEST_FIREFOX_VERSION');
 
 			// load index view
 			$this->ji_load->view('page/index', $data);
