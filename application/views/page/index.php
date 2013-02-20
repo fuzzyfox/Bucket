@@ -1,11 +1,11 @@
 <?php $this->extends_view("theme/basic/generic"); ?>
 
 <?php $this->start_block('styles'); ?>
-<?php Assets::css_group('home', array('home.less')); ?>
+<?php Assets::css_group('home', array('home.less', '../js/libs/video-js/video-js.css', '../js/libs/video-js/video-js-sandstone.css')); ?>
 <?php $this->end_block('styles'); ?>
 
 <?php $this->start_block('javascripts'); ?>
-<?php Assets::js_group('home', array('bedrock/mozilla-pager.js')); ?>
+<?php Assets::js_group('home', array('bedrock/mozilla-pager.js', 'bedrock/home.js', 'libs/video-js/video.js')); ?>
 <script>Mozilla.Pager.AUTO_ROTATE_INTERVAL = 10000;</script>
 <?php $this->end_block('javascripts'); ?>
 
@@ -96,12 +96,49 @@
 
 	<div class="pager-content">
 
+		<div class="pager-page default-page" id="promo-mwc-preview">
+			<script>// <![CDATA[
+			document.getElementById('promo-mwc-preview').id = 'page-promo-mwc-preview';
+			// ]]></script>
+			<a href="//www.mozilla.org/en-GB/firefox/partners/" class="container">
+				<img src="//www.mozilla.org/media/img/home/promo-mwc-preview.jpg" alt="">
+				<div class="content">
+					<h3>The Web is the platform</h3>
+					<h4>Last year at Mobile World Congress, Mozilla made a promise: to deliver the Web as the platform for mobile devices. Now we’re coming back with the proof.</h4>
+					<p class="go">Learn More</p>
+				</div>
+			</a>
+		</div>
+
+		<div class="pager-page" id="promo-flicksvideo">
+			<script>
+				document.getElementById('promo-flicksvideo').id = 'page-promo-flicksvideo';
+			</script>
+			<img id="promo-flicks-keyframe" src="//www.mozilla.org/media/img/home/promo-flicks-video-thumb.jpg" alt="Play Video" tabindex="0" role="button" />
+			<a href="https://firefoxflicks.mozilla.org/" class="container">
+				<div class="content">
+					<h3>You’re the director. Mobile is the star.</h3>
+					<h4>Enter Firefox Flicks, a global video contest about the power of mobile.</h4>
+					<p class="go">Learn more</p>
+				</div>
+			</a>
+			<div id="promo-flicks-overlay" class="video-overlay">
+				<a class="video-visit" href="https://firefoxflicks.mozilla.org/">Visit FirefoxFlicks.org</a>
+				<ul class="share-links">
+					<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffirefoxflicks.org" class="share-facebook">Share on Facebook</a></li>
+					<li><a href="https://www.twitter.com/intent/tweet?url=https%3A%2F%2Ffirefoxflicks.org&text=I+just+watched+this+great+video+about+the+new+%23FirefoxFlicks+contest.+See+for+yourself+and+enter+to+win%21" class="share-twitter">Tweet</a></li>
+				</ul>
+				<span tabindex="0" role="button" class="video-replay">Replay</span>
+				<span tabindex="0" role="button" class="video-continue">Continue</span>
+			</div>
+		</div>
+
 		<div class="pager-page" id="promo-android">
 			<script>// &lt;![CDATA[
 			document.getElementById('promo-android').id = 'page-promo-android';
 			// ]]&gt;
 			</script>
-			<a class="container" href="//www.mozilla.org/en-GB/firefox/fx/?WT.mc_id=moandroid&amp;WT.mc_ev=click#mobile">
+			<a class="container" href="//www.mozilla.org/en-GB/firefox/fx/">
 				<img alt="Firefox for Android artwork" src="//www.mozilla.org/media/img/home/promo-android.jpg">
 				<div class="content">
 					<h3>Fast. Smart. Safe.</h3>
@@ -111,53 +148,12 @@
 			</a>
 		</div>
 
-		<div class="pager-page" id="promo-collusion">
-			<script>// &lt;![CDATA[
-			document.getElementById('promo-collusion').id = 'page-promo-collusion';
-			// ]]&gt;
-			</script>
-			<a class="container" href="//www.mozilla.org/en-GB/collusion/">
-				<img alt="Collusion artwork" src="//www.mozilla.org/media/img/home/promo-collusion.jpg">
-				<div class="content">
-					<h3>See who’s tracking your movements online.</h3>
-					<p class="go">Add Collusion to Firefox&nbsp;»</p>
-				</div>
-			</a>
-		</div>
-
-		<div id="page-promo-maker-video" class="default-page pager-page">
-			<script>// &lt;![CDATA[
-			document.getElementById('promo-maker-video').id = 'page-promo-maker-video';
-			// ]]&gt;</script>
-			<a class="container" href="//www.mozilla.org/en-GB/webmaker/videos/">
-				<img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/instructors.jpg">
-				<div class="content">
-				<h3>Meet the Webmakers</h3>
-				<p class="go"><strong>Let's teach the world the web.</strong> Meet some of the global community making it happen.</p>
-				</div>
-			</a>
-			</div>
-
-		<div class="pager-page" id="page-promo-popcorn">
-			<script>// &lt;![CDATA[
-			document.getElementById('promo-popcorn').id = 'page-promo-popcorn';
-			// ]]&gt;</script>
-			<a class="container" href="http://www.mozillapopcorn.org">
-				<img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/popcorn.png">
-				<div class="content">
-				<h3>Make video pop with Popcorn</h3>
-				<p class="go">Popcorn is revolutionizing video on the web. It's free, open, and easy to use. Try it today. »</p>
-				</div>
-			</a>
-			</div>
 	</div>
 
 	<ul class="pager-tabs">
 		<li><a href="#p1">●</a></li>
 		<li><a href="#p2">●</a></li>
 		<li><a href="#p3">●</a></li>
-		<li><a href="#p4">●</a></li>
-		<li><a href="#p5">●</a></li>
 	</ul>
 
 </section>
