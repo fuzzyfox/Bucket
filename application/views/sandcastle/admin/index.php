@@ -28,6 +28,7 @@
                 <li><?php echo anchor($this->uri->segment(1) . '/events', 'Events'); ?></li>
                 <li><?php echo anchor($this->uri->segment(1) . '/feeds', 'Feeds'); ?></li>
                 <li><?php echo anchor($this->uri->segment(1) . '/users', 'Users'); ?></li>
+                <li><?php echo anchor($this->uri->segment(1) . '/settings', 'Settings'); ?></li>
               </ul>
               <ul class="nav pull-right">
                 <li><?php echo anchor($this->uri->segment(1) . '/sign_out', 'Sign Out'); ?></li>
