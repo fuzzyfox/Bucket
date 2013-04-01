@@ -63,6 +63,24 @@
     }
 
     /**
+     * Update setting
+     *
+     * Updates a setting in the database
+     *
+     * @param string  $id the setting id
+     * @param string  $val the value of the setting
+     * @return  boolean TRUE on succes
+     */
+    public function update($id, $val)
+    {
+      return ($this->db->update('setting', array(
+        'val'  => $val
+      ), array(
+        'id' => $id
+      ))) ? TRUE : FALSE;
+    }
+
+    /**
      * Delete setting
      *
      * Removes a setting from the database

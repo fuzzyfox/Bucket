@@ -52,7 +52,7 @@
 			$this->load->library('jinja-inheritance/JI_Loader', NULL, 'ji_load');
 
 			// load sandcastle components needed over and over
-			$this->load->library(array('sandcastle/user', 'sandcastle/planet'));
+			$this->load->library(array('sandcastle/user', 'sandcastle/planet', 'sandcastle/mozversion'));
 			$this->load->model(array('sandcastle/user_model', 'sandcastle/planet_model', 'sandcastle/event_model', 'sandcastle/setting_model'));
 		}
 
@@ -546,6 +546,36 @@
 				$this->setting_model->delete($id);
 				redirect(strtolower(get_class($this)) . '/settings');
 			}
+		}
+
+		public function product_download()
+		{
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/settings');
+				return;
+			}
+
+			$this->ji_load->view('sandcastle/admin/product_download');
+		}
+
+		/**
+		 * Allows the update of Firefox version
+		 */
+		public function update_fxver()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/delete_setting');
+				return;
+			}
+
+			$channel = 'LATEST_FIREFOX_VERSION';
+			$firefox_version = $this->mozversion->get_firefox($channel);
+
+			$this->setting_model->update($channel, $firefox_version);
+			redirect(strtolower(get_class($this)) . '/product_download');
 		}
 
 		/**
