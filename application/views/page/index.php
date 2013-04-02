@@ -96,25 +96,39 @@
 
 	<div class="pager-content">
 
-		<div class="pager-page default-page" id="promo-mwc-preview">
+		<div class="pager-page default-page" id="promo-mwc-announce">
 			<script>// <![CDATA[
-			document.getElementById('promo-mwc-preview').id = 'page-promo-mwc-preview';
+			document.getElementById('promo-mwc-announce').id = 'page-promo-mwc-announce';
 			// ]]></script>
 			<a href="//www.mozilla.org/en-GB/firefox/partners/" class="container">
-				<img src="//www.mozilla.org/media/img/home/promo-mwc-preview.jpg" alt="">
+				<img src="//mozorg.cdn.mozilla.net/media/img/home/promo-mwc-announce.jpg" alt="">
 				<div class="content">
-					<h3>The Web is the platform</h3>
-					<h4>Last year at Mobile World Congress, Mozilla made a promise: to deliver the Web as the platform for mobile devices. Now we’re coming back with the proof.</h4>
+					<h3>Introducing Firefox OS</h3>
+					<h4>The Open Web makes its debut as the platform for mobile devices at Mobile World Congress to help bring the next billion smartphone users online.</h4>
 					<p class="go">Learn More</p>
 				</div>
 			</a>
 		</div>
 
+		<div class="pager-page" id="promo-mozilla15">
+			<script>// <![CDATA[
+				document.getElementById('promo-mozilla15').id = 'page-promo-mozilla15';
+			// ]]></script>
+			<a href="//www.mozilla.org/en-GB/contribute/" class="container">
+				<img src="//mozorg.cdn.mozilla.net/media/img/home/promo-mozilla15.jpg" alt="">
+				<div class="content">
+					<h3>Mozilla turns 15!</h3>
+					<h4>Help us celebrate with a look at who we are and what we’ve accomplished.</h4>
+					<p class="go">See all 15 facts</p>
+				</div>
+			</a>
+		</div>
+
 		<div class="pager-page" id="promo-flicksvideo">
-			<script>
+			<script>// <![CDATA[
 				document.getElementById('promo-flicksvideo').id = 'page-promo-flicksvideo';
-			</script>
-			<img id="promo-flicks-keyframe" src="//www.mozilla.org/media/img/home/promo-flicks-video-thumb.jpg" alt="Play Video" tabindex="0" role="button" />
+			// ]]></script>
+			<img id="promo-flicks-keyframe" src="//mozorg.cdn.mozilla.net/media/img/home/promo-flicks-allthree-video-thumb.jpg" alt="Play Video" tabindex="0" role="button" />
 			<a href="https://firefoxflicks.mozilla.org/" class="container">
 				<div class="content">
 					<h3>You’re the director. Mobile is the star.</h3>
@@ -126,7 +140,7 @@
 				<a class="video-visit" href="https://firefoxflicks.mozilla.org/">Visit FirefoxFlicks.org</a>
 				<ul class="share-links">
 					<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffirefoxflicks.org" class="share-facebook">Share on Facebook</a></li>
-					<li><a href="https://www.twitter.com/intent/tweet?url=https%3A%2F%2Ffirefoxflicks.org&text=I+just+watched+this+great+video+about+the+new+%23FirefoxFlicks+contest.+See+for+yourself+and+enter+to+win%21" class="share-twitter">Tweet</a></li>
+					<li><a href="https://www.twitter.com/intent/tweet?url=https%3A%2F%2Ffirefoxflicks.org&amp;text=I+just+watched+this+great+video+about+the+new+%23FirefoxFlicks+contest.+See+for+yourself+and+enter+to+win%21" class="share-twitter">Tweet</a></li>
 				</ul>
 				<span tabindex="0" role="button" class="video-replay">Replay</span>
 				<span tabindex="0" role="button" class="video-continue">Continue</span>
@@ -143,7 +157,7 @@
 				<div class="content">
 					<h3>Fast. Smart. Safe.</h3>
 					<h4>Get the mobile browser that’s got your back.</h4>
-					<p class="go">Get Firefox for Android&nbsp;»</p>
+					<p class="go">Get Firefox for Android</p>
 				</div>
 			</a>
 		</div>
@@ -154,6 +168,7 @@
 		<li><a href="#p1">●</a></li>
 		<li><a href="#p2">●</a></li>
 		<li><a href="#p3">●</a></li>
+		<li><a href="#p4">●</a></li>
 	</ul>
 
 </section>
