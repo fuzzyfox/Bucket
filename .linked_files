@@ -5,5 +5,6 @@ bedrock/media/js/mozilla-pager.js media/js/bedrock/
 bedrock/media/js/nav-main-resp.js media/js/bedrock/
 bedrock/media/fonts/* media/fonts/
 bedrock/media/img/sandstone/* media/img/sandstone/
+bedrock/media/img/sandstone/buttons/* media/img/sandstone/buttons/
 bedrock/media/js/mozorg/home.js media/js/bedrock/
 bedrock/media/js/libs/video-js/* media/js/libs/video-js/
