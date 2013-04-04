@@ -224,14 +224,12 @@ Mozilla.Pager = function(container, parentPager)
         );
 
         // prevent auto-rotate when focused on container
-        this.$container.find('a,input,textarea').each(function (i) {
-            $(this)
-                .focus(function(e) {
-                    that.stopAutoRotate();
-                })
-                .blur(function(e) {
-                    if (that.autoRotate) { that.startAutoRotate(); }
-                });
+        this.$container.focusin(function(e) {
+            that.stopAutoRotate();
+        }).focusout(function(e) {
+            if (that.autoRotate) {
+                that.startAutoRotate();
+            }
         });
     } else {
         this.autoRotate = false;
@@ -311,7 +309,7 @@ Mozilla.Pager.LOCATION_INTERVAL    = 200;    // milliseconds
 Mozilla.Pager.NEXT_TEXT            = 'Next';
 Mozilla.Pager.PREV_TEXT            = 'Previous';
 Mozilla.Pager.PAGE_NUMBER_TEXT     = '%s / %s';
-Mozilla.Pager.AUTO_ROTATE_INTERVAL = 10000;  // milliseconds
+Mozilla.Pager.AUTO_ROTATE_INTERVAL = 7000;  // milliseconds
 
 // {{{ setStateFromPath()
 
@@ -724,7 +722,9 @@ Mozilla.Pager.prototype.startAutoRotate = function()
             Mozilla.Pager.AUTO_ROTATE_INTERVAL, pager)
     }
 
-    setupInterval(this);
+    if (!this.autoRotateInterval) {
+        setupInterval(this);
+    }
 };
 
 // }}}
