@@ -17,7 +17,7 @@
 
 		<title>Mozilla United Kingdom Community</title>
 	</head>
-	<body id="home" class="html-ltr bucket">
+	<body id="home" class="html-ltr sky">
 		<div id="outer-wrapper">
 			<div id="wrapper">
 

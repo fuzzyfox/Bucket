@@ -13,24 +13,24 @@
 <?php $this->start_block('firefox-download'); ?>
 <section id="firefox-promo" class="billboard">
 	<h3>Different by&nbsp;Design</h3>
-	<a href="//mozilla.org/en-GB/firefox/" id="firefox-promo-link">
+	<a href="//mozilla.org/firefox/" id="firefox-promo-link">
 		<img src="//mozorg.cdn.mozilla.net/media/img/home/firefox.png" id="promo-logo" alt="Firefox">
-		</a>
+	</a>
 	<ul class="features">
 		<li><small>Proudly <br> non-profit</small></li>
 		<li><small>Innovating <br> for&nbsp;you</small></li>
 		<li><small>Fast,&nbsp;flexible, <br> secure</small></li>
 	</ul>
 
-	<aside id="download" class="download-button download-button-small">
+	<div id="download-button-desktop-release" class="download-button download-button-small download-button-noicon">
 		<noscript>
 			<div class="download download-dumb">
 				<h4>Download Firefox — English (GB)</h4>
 				<ul>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB" class="button-white">Windows</a></li>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB" class="button-white">Linux</a></li>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB" class="button-white">Mac OS X</a></li>
-					<li><a href="https://market.android.com/details?id=org.mozilla.firefox" class="button-white">Android</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB" class="button-green">Windows</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB" class="button-green">Linux</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB" class="button-green">Mac OS X</a></li>
+					<li><a href="https://market.android.com/details?id=org.mozilla.firefox" class="button-green">Android</a></li>
 				</ul>
 			</div>
 		</noscript>
@@ -39,57 +39,86 @@
 			<div class="download download-dumb">
 				<h4>Download Firefox — English (GB)</h4>
 				<ul>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB" class="button-white">Windows</a></li>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB" class="button-white">Linux</a></li>
-					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB" class="button-white">Mac OS X</a></li>
-					<li><a href="https://market.android.com/details?id=org.mozilla.firefox" class="button-white">Android</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB" class="button-green">Windows</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB" class="button-green">Linux</a></li>
+					<li><a href="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB" class="button-green">Mac OS X</a></li>
+					<li><a href="https://market.android.com/details?id=org.mozilla.firefox" class="button-green">Android</a></li>
 				</ul>
 			</div>
 		</div>
-
-		<ul class="download-list">
-			<li class="os_windows">
-				<a class="download-link download-firefox"
-				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB"
-				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB">
-					<span class="download-content"><span class="download-title">Firefox</span>Free Download</span>
-				</a>
-			</li>
-			<li class="os_linux">
-				<a class="download-link download-firefox"
-				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB"
-				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB">
-					<span class="download-content"><span class="download-title">Firefox</span>Free Download</span>
-				</a>
-			</li>
-			<li class="os_osx">
-				<a class="download-link download-firefox"
-				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB"
-				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB">
-					<span class="download-content"><span class="download-title">Firefox</span>Free Download</span>
-				</a>
-			</li>
-			<li class="os_android">
-				<a class="download-link download-firefox"
-				href="https://market.android.com/details?id=org.mozilla.firefox">
-					<span class="download-content"><span class="download-title">Firefox</span>Free Download</span>
-				</a>
-			</li>
-		</ul>
 
 		<p class="unsupported-download">
 			Your system doesn't meet the <a href="//mozilla.org/en-GB/firefox/<?php echo $LATEST_FIREFOX_VERSION ?>/system-requirements/">requirements</a> to run Firefox.
 		</p>
 
-		<small class="download-other">
-			<a href="//mozilla.org/en-GB/firefox/all.html">Systems & Languages</a> |
+		<ul class="download-list">
+			<li class="os_windows">
+				<a class="download-link"
+				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB"
+				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=win&amp;lang=en-GB">
+					<span class="download-content">
+						<strong class="download-title">Firefox</strong>
+						<span class="download-subtitle">Free Download</span>
+						<span class="download-lang">English (GB)</span>
+						<span class="download-platform">Windows</span>
+					</span>
+				</a>
+			</li>
+
+			<li class="os_linux">
+				<a class="download-link"
+				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB"
+				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=linux&amp;lang=en-GB">
+					<span class="download-content">
+						<strong class="download-title">Firefox</strong>
+						<span class="download-subtitle">Free Download</span>
+						<span class="download-lang">English (GB)</span>
+						<span class="download-platform">Linux</span>
+					</span>
+				</a>
+			</li>
+
+			<li class="os_osx">
+				<a class="download-link"
+				href="//mozilla.org/en-GB/products/download.html?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB"
+				data-direct-link="https://download.mozilla.org/?product=firefox-<?php echo $LATEST_FIREFOX_VERSION ?>&amp;os=osx&amp;lang=en-GB">
+					<span class="download-content">
+						<strong class="download-title">Firefox</strong>
+						<span class="download-subtitle">Free Download</span>
+						<span class="download-lang">English (GB)</span>
+						<span class="download-platform">Mac OS X</span>
+					</span>
+				</a>
+			</li>
+
+			<li class="os_android">
+				<a class="download-link"
+					 href="https://market.android.com/details?id=org.mozilla.firefox">
+					<span class="download-content">
+						<strong class="download-title"><span>Firefox</span> for Android</strong>
+						<span class="download-subtitle">Get it free on Google Play</span>
+					</span>
+				</a>
+			</li>
+		</ul>
+
+		<small class="download-other os_android">
+			<a href="//mozilla.org/en-GB/firefox/mobile/platforms">Supported Devices</a> |
+			<a href="//mozilla.org/en-GB/mobile/notes">What’s New</a> |
+			<a href="//mozilla.org/en-GB/legal/privacy/firefox.html">Privacy</a>
+		</small>
+
+		<small class="download-other os_linux os_osx os_windows">
+			<a href="//mozilla.org/en-GB/firefox/all.html">Systems &amp; Languages</a> |
 			<a href="//mozilla.org/en-GB/firefox/notes">What’s New</a> |
 			<a href="//mozilla.org/en-GB/legal/privacy/firefox.html">Privacy</a>
 		</small>
-	</aside>
+	</div>
 </section>
 <?php $this->end_block('firefox-download'); ?>
 <?php } ?>
+
+
 
 <?php $this->start_block('promo'); ?>
 <section id="home-promo" class="pager pager-with-tabs pager-auto-rotate pager-no-history">
