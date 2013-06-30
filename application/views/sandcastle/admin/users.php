@@ -1,7 +1,7 @@
-<!doctype html>
-<meta charset="utf-8">
-<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
-<table>
+<?php $this->extends_view("sandcastle/admin/index.php"); ?>
+
+<?php $this->start_block('content'); ?>
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -25,3 +25,4 @@
 	</tbody>
 </table>
 <?php echo anchor($this->uri->segment(1) . '/add_user', 'Add User'); ?>
+<?php $this->end_block('content'); ?>

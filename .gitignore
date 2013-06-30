@@ -9,6 +9,7 @@ application/config/config.php
 application/config/email.php
 application/cache/
 .htaccess
+media/cache/
 
 !asset/misc/schema.sql
 

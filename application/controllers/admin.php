@@ -1,5 +1,5 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
-	
+
 	/**
 	 * SandCastle
 	 *
@@ -12,12 +12,12 @@
 	 * @link 		http://www.wduyck.com/ wduyck.com
 	 * @filesource
 	 */
-	
+
 	// -------------------------------------------------------------------------
-	
+
 	/**
 	 * Admin Controller
-	 * 
+	 *
 	 * Provides the needed functions to make managing a basic community portal a
 	 * piece of cake. This controller acts as an example of one way the Planet
 	 * Library and Planet Model can be used together to produce a functioning
@@ -46,15 +46,16 @@
 		public function __construct()
 		{
 			parent::__construct();
-			
+
 			$this->load->library('form_validation');
 			$this->load->helper(array('form', 'url'));
-			
+			$this->load->library('jinja-inheritance/JI_Loader', NULL, 'ji_load');
+
 			// load sandcastle components needed over and over
-			$this->load->library(array('sandcastle/user', 'sandcastle/planet'));
-			$this->load->model(array('sandcastle/user_model', 'sandcastle/planet_model', 'sandcastle/event_model'));
+			$this->load->library(array('sandcastle/user', 'sandcastle/planet', 'sandcastle/mozversion'));
+			$this->load->model(array('sandcastle/user_model', 'sandcastle/planet_model', 'sandcastle/event_model', 'sandcastle/setting_model'));
 		}
-		
+
 		/**
 		 * Provides a dashboard for the admin area
 		 */
@@ -66,10 +67,10 @@
 				$this->sign_in(strtolower(get_class($this)) . '');
 				return;
 			}
-			
-			$this->load->view('sandcastle/admin/index');
+
+			$this->ji_load->view('sandcastle/admin/index');
 		}
-		
+
 		/**
 		 * Signs a user into the admin area
 		 *
@@ -82,27 +83,27 @@
 			{
 				redirect(strtolower(get_class($this)));
 			}
-			
+
 			// `get_class` used so that this class can be renamed and still work
 			// decoupling the class from the uri a little more
 			$redirect_path = ($redirect_path !== NULL) ? $redirect_path : strtolower(get_class($this));
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 			$email = $this->input->post('email');
 			$this->form_validation->set_rules('password', 'Password', "required|callback__valid_sign_in[$email]");
-			
+
 			// run form validation and check login credentials if form entry is valid
 			if($this->form_validation->run() === FALSE)
 			{
-				$this->load->view('sandcastle/form/sign_in');
+				$this->ji_load->view('sandcastle/form/sign_in');
 			}
 			else
 			{
 				$this->user->sign_in($email, $this->user_model->get_status($email), $redirect_path);
 			}
 		}
-		
+
 		/**
 		 * Signs a user out of the admin area
 		 *
@@ -115,14 +116,14 @@
 			{
 				redirect(strtolower(get_class($this)) . '/sign_in');
 			}
-			
+
 			// `get_class` used so that this class can be renamed and still work
 			// decoupling the class from the uri a little more
 			$redirect_path = ($redirect_path !== NULL) ? $redirect_path : strtolower(get_class($this));
-			
+
 			$this->user->sign_out($redirect_path);
 		}
-		
+
 		/**
 		 * Lists all feeds in the database and provides links to add new feeds OR delete old ones
 		 */
@@ -134,11 +135,11 @@
 				$this->sign_in(strtolower(get_class($this)) . '/feeds');
 				return;
 			}
-			
+
 			$data['feeds'] = $this->planet_model->get_feeds();
-			$this->load->view('sandcastle/admin/feeds', $data);
+			$this->ji_load->view('sandcastle/admin/feeds', $data);
 		}
-		
+
 		/**
 		 * Allows the addition of feeds
 		 */
@@ -150,15 +151,15 @@
 				$this->sign_in(strtolower(get_class($this)) . '/add_feed');
 				return;
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('email', 'Email', 'trim|valid_email');
 			$this->form_validation->set_rules('feed_url', 'Feed URL', 'trim|prep_url|required|callback__valid_feed');
-			
+
 			// run form validation and add feed if possible
 			if($this->form_validation->run() === FALSE)
 			{
-				$this->load->view('sandcastle/form/add_feed');	
+				$this->ji_load->view('sandcastle/form/add_feed');
 			}
 			else
 			{
@@ -166,7 +167,7 @@
 				redirect(strtolower(get_class($this)) . '/feeds');
 			}
 		}
-		
+
 		/**
 		 * Allows the deletion of feeds
 		 */
@@ -178,23 +179,23 @@
 				$this->sign_in(strtolower(get_class($this)) . '/delete_feed');
 				return;
 			}
-			
+
 			// get the url of the feed to remove and show error if not provided
 			$url = ($this->input->get('feed_url')) ? $this->input->get('feed_url') : $this->input->post('feed_url');
 			if(!$url)
 			{
 				show_error('No feed specified for deletion', 400, '400 Bad Request');
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('feed_url', 'Feed URL', 'required');
-			
+
 			// run from validation and remove feed if confrimation given
 			if($this->form_validation->run() === FALSE)
 			{
 				$data['feed_url'] = $url;
 				$data['feed_title'] = $this->planet->get_feed_title($url);
-				$this->load->view('sandcastle/form/delete_feed', $data);
+				$this->ji_load->view('sandcastle/form/delete_feed', $data);
 			}
 			else
 			{
@@ -202,9 +203,9 @@
 				redirect(strtolower(get_class($this)) . '/feeds');
 			}
 		}
-		
+
 		/**
-		 * Lists all users and provides a few links to make changes as needed 
+		 * Lists all users and provides a few links to make changes as needed
 		 */
 		public function users()
 		{
@@ -214,11 +215,11 @@
 				$this->sign_in(strtolower(get_class($this)) . '/users');
 				return;
 			}
-			
+
 			$data['users'] = $this->user_model->get();
-			$this->load->view('sandcastle/admin/users', $data);
+			$this->ji_load->view('sandcastle/admin/users', $data);
 		}
-		
+
 		/**
 		 * Allows the addition of users
 		 */
@@ -230,7 +231,7 @@
 				$this->sign_in(strtolower(get_class($this)) . '/add_user');
 				return;
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
 			$this->form_validation->set_rules('confirm_email', 'Confirm Email', 'trim|required|matches[email]');
@@ -238,12 +239,12 @@
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 			$this->form_validation->set_rules('status', 'Status', 'required');
-			
+
 			// run form validation and add user if needed
 			if($this->form_validation->run() === FALSE)
 			{
 				$data['statuses'] = $this->user->get_config()->status;
-				$this->load->view('sandcastle/form/add_user', $data);
+				$this->ji_load->view('sandcastle/form/add_user', $data);
 			}
 			else
 			{
@@ -255,12 +256,12 @@
 					'status'	=> $this->input->post('status')
 				);
 				$this->user_model->insert($data);
-				
+
 				// redirect to users page
 				redirect(strtolower(get_class($this)) . '/users');
 			}
 		}
-		
+
 		/**
 		 * Deletes a user after confirmation
 		 */
@@ -272,23 +273,23 @@
 				$this->sign_in(strtolower(get_class($this)) . '/delete_user');
 				return;
 			}
-			
+
 			// get the email of the user to remove and show error if not provided
 			$user = ($this->input->get('email')) ? $this->input->get('email') : $this->input->post('email');
 			if(!$user)
 			{
 				show_error('No user specified for deletion', 400, '400 Bad Request');
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback__user_exists');
-			
+
 			// run validation and delete user if needed
 			if($this->form_validation->run() === FALSE)
 			{
 				$user = $this->user_model->get($user);
 				$data['user'] = $user[0];
-				$this->load->view('sandcastle/form/delete_user', $data);
+				$this->ji_load->view('sandcastle/form/delete_user', $data);
 			}
 			else
 			{
@@ -296,7 +297,7 @@
 				redirect(strtolower(get_class($this)) . '/users');
 			}
 		}
-		
+
 		/**
 		 * Allows for the modification of users
 		 */
@@ -308,28 +309,28 @@
 				$this->sign_in(strtolower(get_class($this)) . '/edit_user');
 				return;
 			}
-			
+
 			// get the email of the user to remove and show error if not provided
 			$user = ($this->input->get('email')) ? $this->input->get('email') : $this->input->post('email');
 			if(!$user)
 			{
 				show_error('No user specified for modification', 400, '400 Bad Request');
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('confirm_email', 'Confirm Email', 'trim|required|matches[email]');
 			$this->form_validation->set_rules('name', 'Display Name', 'trim');
 			$this->form_validation->set_rules('status', 'Status', 'required');
 			$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'matches[password]');
-			
+
 			// run validation and delete user if needed
 			if($this->form_validation->run() === FALSE)
 			{
 				$user = $this->user_model->get($user);
 				$data['user'] = $user[0];
 				$data['statuses'] = $this->user->get_config()->status;
-				$this->load->view('sandcastle/form/edit_user', $data);
+				$this->ji_load->view('sandcastle/form/edit_user', $data);
 			}
 			else
 			{
@@ -338,17 +339,17 @@
 					'status'	=> $this->input->post('status'),
 					'email'		=> $this->input->post('email')
 				);
-				
+
 				if($this->input->post('password'))
 				{
 					$data['password'] = $this->user->hash_password($this->input->post('password'), $this->input->post('email'));
 				}
-				
+
 				$this->user_model->update($user, $data);
 				redirect(strtolower(get_class($this)) . '/users');
 			}
 		}
-		
+
 		/**
 		 * Lists events
 		 */
@@ -359,11 +360,11 @@
 				$this->sign_in(strtolower(get_class($this)) . '/events');
 				return;
 			}
-			
+
 			$data['events'] = $this->event_model->get_event();
-			$this->load->view('sandcastle/admin/events', $data);
+			$this->ji_load->view('sandcastle/admin/events', $data);
 		}
-		
+
 		/**
 		 * Allows users to add events
 		 */
@@ -374,7 +375,7 @@
 				$this->sign_in(strtolower(get_class($this)) . '/add_event');
 				return;
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('url', 'Event URL', 'trim|prep_url|required');
 			$this->form_validation->set_rules('name', 'Event Name', 'trim|max_length[40]|required');
@@ -382,11 +383,11 @@
 			$this->form_validation->set_rules('start_date', 'Start Date', 'trim|required|callback__valid_date_format');
 			$start_date = $this->input->post('start_date');
 			$this->form_validation->set_rules('finish_date', 'Finish Date', "trim|callback__valid_date_format|callback__valid_finish_date[$start_date]");
-			
+
 			// run form validation and add event / tags if needed
 			if($this->form_validation->run() === FALSE)
 			{
-				$this->load->view('sandcastle/form/add_event');
+				$this->ji_load->view('sandcastle/form/add_event');
 			}
 			else
 			{
@@ -411,16 +412,16 @@
 				{
 					$tags = NULL;
 				}
-				
+
 				// load the CodeIgniter date helper
 				$this->load->helper('date');
-				
+
 				// deal with finish date
 				$finsih_date = ($this->input->post('finish_date') !== FALSE) ? strtotime($this->input->post('finish_date')) : NULL;
-				
+
 				// deal with start date
 				$start_date = strtotime($this->input->post('start_date'));
-				
+
 				// add event
 				$this->event_model->add_event($this->input->post('url'),
 											  $this->input->post('name'),
@@ -428,12 +429,12 @@
 											  $start_date,
 											  $finsih_date,
 											  $tags);
-				
+
 				// redirect back
 				redirect(strtolower(get_class($this)) . '/events');
 			}
 		}
-		
+
 		/**
 		 * Allows user to delete events
 		 */
@@ -445,22 +446,22 @@
 				$this->sign_in(strtolower(get_class($this)) . '/delete_event/' . $id);
 				return;
 			}
-			
+
 			// check the id of the event to delete was specified
 			if($id === FALSE)
 			{
 				show_error('No event specified for deletion', 400, '400 Bad Request');
 			}
-			
+
 			// set validation rules
 			$this->form_validation->set_rules('event_id', 'event_id', 'trim|required');
-			
+
 			// run validation and delete user if needed
 			if($this->form_validation->run() === FALSE)
 			{
 				$event = $this->event_model->get_event($id);
 				$data['event'] = $event[0];
-				$this->load->view('sandcastle/form/delete_event', $data);
+				$this->ji_load->view('sandcastle/form/delete_event', $data);
 			}
 			else
 			{
@@ -468,7 +469,115 @@
 				redirect(strtolower(get_class($this)) . '/events');
 			}
 		}
-		
+
+		/**
+		 * Lists settings
+		 */
+		public function settings()
+		{
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/settings');
+				return;
+			}
+
+			$data['settings'] = $this->setting_model->get();
+			$this->ji_load->view('sandcastle/admin/settings', $data);
+		}
+
+		/**
+		 * Allows the addition of settings
+		 */
+		public function add_setting()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/add_setting');
+				return;
+			}
+
+			// set validation rules
+			$this->form_validation->set_rules('id', 'ID', 'required');
+			$this->form_validation->set_rules('val', 'Value', 'required');
+
+			// run form validation and add setting if possible
+			if($this->form_validation->run() === FALSE)
+			{
+				$this->ji_load->view('sandcastle/form/add_setting');
+			}
+			else
+			{
+				$this->setting_model->add($this->input->post('id'), $this->input->post('val'));
+				redirect(strtolower(get_class($this)) . '/settings');
+			}
+		}
+
+		/**
+		 * Allows the deletion of settings
+		 */
+		public function delete_setting()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/delete_setting');
+				return;
+			}
+
+			// get the url of the feed to remove and show error if not provided
+			$id = ($this->input->get('id')) ? $this->input->get('id') : $this->input->post('id');
+			if(!$id)
+			{
+				show_error('No setting specified for deletion', 400, '400 Bad Request');
+			}
+
+			// set validation rules
+			$this->form_validation->set_rules('id', 'ID', 'required');
+
+			// run from validation and remove setting if confrimation given
+			if($this->form_validation->run() === FALSE)
+			{
+				$data['id'] = $id;
+				$this->ji_load->view('sandcastle/form/delete_setting', $data);
+			}
+			else
+			{
+				$this->setting_model->delete($id);
+				redirect(strtolower(get_class($this)) . '/settings');
+			}
+		}
+
+		public function product_download()
+		{
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/settings');
+				return;
+			}
+
+			$this->ji_load->view('sandcastle/admin/product_download');
+		}
+
+		/**
+		 * Allows the update of Firefox version
+		 */
+		public function update_fxver()
+		{
+			// if user is not signed in send the to sign in page
+			if(!$this->user->is_signed_in())
+			{
+				$this->sign_in(strtolower(get_class($this)) . '/delete_setting');
+				return;
+			}
+
+			$channel = 'LATEST_FIREFOX_VERSION';
+			$firefox_version = $this->mozversion->get_firefox($channel);
+
+			$this->setting_model->update($channel, $firefox_version);
+			redirect(strtolower(get_class($this)) . '/product_download');
+		}
+
 		/**
 		 * Checks if a sign in is valid
 		 *
@@ -482,7 +591,7 @@
 			$password_hash = $this->user->hash_password($password, $email);
 			return $this->user_model->valid_sign_in($email, $password_hash);
 		}
-		
+
 		/**
 		 * Alias to the planet library's `valid_feed` function
 		 *
@@ -494,7 +603,7 @@
 			$this->form_validation->set_message('_valid_feed', 'There is an error with the feed at %s. Is the url valid? Is the feed online? Is the feed RSS 2.0 or ATOM?');
 			return $this->planet->valid_feed($url);
 		}
-		
+
 		/**
 		 * Determines if a user exists within the database
 		 *
@@ -507,7 +616,7 @@
 			$query = $this->db->get_where('user', array('email' => $email));
 			return ($query->num_rows() === 1);
 		}
-		
+
 		/**
 		 * Checks if the date format submitted by the user is valid
 		 *
@@ -521,7 +630,7 @@
 			$this->load->helper('date');
 			return (strtotime($date) !== FALSE) ? TRUE : FALSE;
 		}
-		
+
 		/**
 		 * Checks if one date is bigger than the other
 		 *
@@ -534,9 +643,9 @@
 			// load the CodeIgniter date helper
 			$this->load->helper('date');
 			// do the comparison
-			return (strtotime($after) > strtotime($before));
+			return (strtotime($after) >= strtotime($before));
 		}
 	}
-	
+
 /* End of file admin.php */
 /* Location: application/controllers/admin.php */

@@ -1,6 +1,6 @@
-<!doctype html>
-<meta charset="utf-8">
-<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+<?php $this->extends_view("sandcastle/admin/index.php"); ?>
+
+<?php $this->start_block('content'); ?>
 <?php echo validation_errors(); ?>
 <?php echo form_open(); ?>
 	<fieldset>
@@ -24,3 +24,4 @@
 		<button type="submit">Add User</button>
 	</fieldset>
 </form>
+<?php $this->end_block('content'); ?>
