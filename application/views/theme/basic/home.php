@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en-GB" dir="ltr">
 	<head>
+
+		<!--[if lte IE 8]>
+		<script src="<?php echo base_url('asset/js/html5shiv-3.6.1.js'); ?>"></script>
+		<![endif]-->
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,7 +32,7 @@
 						</ul>
 					</nav>
 
-					<h2><a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('asset/img/mozilla-uk-logo-h.png'); ?>" alt="mozilla uk"></a></h2>
+					<h2><a href="<?php echo site_url(); ?>"><img id="header-logo" src="<?php echo base_url('asset/img/logo-h.svg'); ?>" alt="Mozilla UK"></a></h2>
 
 				</header>
 
@@ -79,19 +84,6 @@
 							</a>
 						</div>
 
-						<div class="pager-page" id="promo-flicks">
-							<script>
-								document.getElementById('promo-flicks').id = 'page-promo-flicks';
-							</script>
-							<a href="https://firefoxflicks.mozilla.org/?WT.mc_id=mofxflicks&amp;WT.mc_ev=click" class="container">
-								<img alt="Firefox Flicks artwork" src="//www.mozilla.org/media/img/home/promo-flicks.jpg">
-								<div>
-									<h3>Congratulations to all the winners of Firefox Flicks!</h3>
-									<p class="go">Watch the winning videos</p>
-								</div>
-							</a>
-						</div>
-
 						<div id="page-promo-maker-video" class="default-page pager-page">
 							<script>// &lt;![CDATA[
 							document.getElementById('promo-maker-video').id = 'page-promo-maker-video';
@@ -101,19 +93,6 @@
 							  <div>
 								<h3>Meet the Webmakers</h3>
 								<p><strong>Let's teach the world the web.</strong> Meet some of the global community making it happen.</p>
-							  </div>
-							</a>
-						  </div>
-
-						<div class="pager-page" id="page-promo-code-party">
-							<script>// &lt;![CDATA[
-							document.getElementById('promo-code-party').id = 'page-promo-code-party';
-							// ]]&gt;</script>
-							<a class="container" href="https://webmaker.org/events/">
-							  <img alt="" src="//www.mozilla.org/media/img/webmaker/carousel/codeparty.jpg">
-							  <div>
-								<h3>Summer Code Party</h3>
-								<p>Meet, make, and share your creations with friends to learn some code this summer. »</p>
 							  </div>
 							</a>
 						  </div>
@@ -138,8 +117,6 @@
 						<li><a href="#p3">●</a></li>
 						<li><a href="#p4">●</a></li>
 						<li><a href="#p5">●</a></li>
-						<li><a href="#p6">●</a></li>
-						<li><a href="#p7">●</a></li>
 					</ul>
 
 				</section>
@@ -191,6 +168,18 @@
 				</div>
 			</footer>
 			<script src="//www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+			<!-- Piwik -->
+			<script type="text/javascript">
+			var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.mozilla.org.uk/" : "http://stats.mozilla.org.uk/");
+			document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+			</script><script type="text/javascript">
+			try {
+			var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+			piwikTracker.trackPageView();
+			piwikTracker.enableLinkTracking();
+			} catch( err ) {}
+			</script><noscript><p><img src="http://stats.mozilla.org.uk/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+			<!-- End Piwik Tracking Code -->
 		</div>
 		<script src="//www.mozilla.org/media/js/mozorg-resp-min.js?build=ff582c5"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

@@ -1,4 +1,14 @@
+<?php $this->extends_view("theme/basic/generic"); ?>
+
+<?php $this->start_block('styles'); ?>
+<?php Assets::css_group('events', array('events.less')); ?>
+<?php $this->end_block('styles'); ?>
+
+<?php $this->start_block('title'); ?>
 <h1>Events</h1>
+<?php $this->end_block('title'); ?>
+
+<?php $this->start_block('content'); ?>
 <?php if($events): foreach ($events as $event): ?>
 <section class="event">
 	<p class="calendar event-time">
@@ -24,3 +34,4 @@
 <?php endforeach;else: ?>
 <p>No events here... more to come soon we hope!</p>
 <?php endif; ?>
+<?php $this->end_block('content'); ?>
